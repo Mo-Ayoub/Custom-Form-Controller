@@ -23,7 +23,7 @@ namespace MyCustomLibrary.Controllers
                 return Content("Invalid form ID.");
             }
 
-            var records = _recordReaderService.GetRecordsFromForm(formId, 1, 10);
+            var records = _recordReaderService.GetRecordsFromForm(formId, 1, 500);
 
             if (!records.Items.Any())
             {
