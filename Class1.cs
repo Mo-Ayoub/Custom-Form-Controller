@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 using Umbraco.Web.Mvc;
@@ -30,7 +30,9 @@ namespace MyCustomLibrary.Controllers
                 return Content("No records found.");
             }
 
-            var formattedRecords = records.Items.Select(record => new
+            var formattedRecords = records.Items
+            .OrderByDescending(record => record.Created)
+            .Select(record => new
             {
                 record.Id,
                 record.Created,
